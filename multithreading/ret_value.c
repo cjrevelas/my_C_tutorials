@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <pthread.h>
 
-void *function(void *arg)
+void *print(void *arg)
 {
 	// Dynamic allocatin of an integer number to be returned
 	int *number_address = malloc(sizeof(int));
@@ -21,7 +21,7 @@ int main()
 	pthread_t t1;
 	int *result;
 
-	pthread_create(&t1, NULL, &function, NULL);
+	pthread_create(&t1, NULL, print, NULL);
 
 	pthread_join(t1, (void **) &result);
 
